@@ -3,7 +3,7 @@ plugins {
     kotlin("jvm") version "1.4-M1"
 }
 
-group = "com.milse113"
+group = "com.leafclient"
 version = "1.0.0"
 
 repositories {

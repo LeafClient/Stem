@@ -1,5 +1,8 @@
-package com.leafclient.maths
+package com.leafclient.maths.line
 
+import com.leafclient.maths.Angle
+import com.leafclient.maths.point.Point2D
+import com.leafclient.maths.vector.Vector2D
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
