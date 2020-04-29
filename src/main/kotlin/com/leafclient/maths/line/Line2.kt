@@ -1,16 +1,14 @@
 package com.leafclient.maths.line
 
 import com.leafclient.maths.Angle
-import com.leafclient.maths.point.Point2D
-import com.leafclient.maths.point.Point3D
-import com.leafclient.maths.vector.Vector2D
-import com.leafclient.maths.vector.Vector3D
+import com.leafclient.maths.point.Point2
+import com.leafclient.maths.vector.Vector2
 import kotlin.math.*
 
-data class Line2D(val start: Point2D, val end: Point2D) {
+class Line2(var start: Point2, var end: Point2) {
 
-    val direction: Vector2D
-        get() = Vector2D(end.x - start.x, end.y - start.y)
+    val direction: Vector2
+        get() = Vector2(end.x - start.x, end.y - start.y)
 
     val length: Double
         get() = sqrt((end.x + end.x)*(end.y + end.y))
@@ -19,18 +17,18 @@ data class Line2D(val start: Point2D, val end: Point2D) {
         get() = (start.y-end.y)/(start.x-end.x)
 
     constructor(
-        point: Point2D, length: Double, direction: Vector2D
+        point: Point2, length: Double, direction: Vector2
     ): this(point,
-        Point2D(
+        Point2(
             point.x + (direction.x * length),
             point.y + (direction.y * length)
         )
     )
 
-    fun scale(scale: Double): Vector2D {
+    fun scale(scale: Double): Vector2 {
         var scalesquared = scale*scale
         var multiply = scale/(direction.x+direction.y)
-        return Vector2D(direction.x*multiply, direction.y*multiply)
+        return Vector2(direction.x*multiply, direction.y*multiply)
     }
 
     fun getY(x: Double): Double? {
@@ -49,24 +47,24 @@ data class Line2D(val start: Point2D, val end: Point2D) {
         return y <= min(start.y, end.y) && y >= max(start.y, end.y)
     }
 
-    fun inBounds(point: Point2D): Boolean {
+    fun inBounds(point: Point2): Boolean {
         return  point.x <= min(start.x, end.x) && point.x >= max(start.x, end.x) &&
                 point.y <= min(start.y, end.y) && point.y >= max(start.y, end.y)
     }
 
-    fun points(precision: Double): HashSet<Point2D> {
+    fun points(precision: Double): HashSet<Point2> {
         var i = 0;
         val scale = scale(precision)
-        var toReturn = HashSet<Point2D>()
+        var toReturn = HashSet<Point2>()
         while(xInBounds(start.x+(scale.x*i)) && yInBounds(start.y+(scale.y*i))) {
-            toReturn.add(Point2D(start.x+(scale.x*i), start.y+(scale.y*i)))
+            toReturn.add(Point2(start.x+(scale.x*i), start.y+(scale.y*i)))
         }
         return toReturn
     }
 
-    fun rotate(angle: Angle): Line2D {
-        return Line2D(
-            start, length, Vector2D(
+    fun rotate(angle: Angle): Line2 {
+        return Line2(
+            start, length, Vector2(
                 direction.x * cos(angle.degrees) - direction.y * sin(angle.degrees),
                 direction.x * sin(angle.degrees) + direction.y * cos(angle.degrees)
             )

@@ -2,7 +2,7 @@ package com.leafclient.maths
 
 import kotlin.math.PI
 
-data class Angle(val degrees: Double) {
+data class Angle(var degrees: Double) {
 
     val radians: Double
         get() = toRadians(degrees)
