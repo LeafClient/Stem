@@ -1,5 +1,6 @@
 package com.leafclient.maths.point
 import com.leafclient.maths.Angle
+import com.leafclient.maths.vector.Vector2D
 import kotlin.math.atan
 import kotlin.math.cos
 import kotlin.math.sin
@@ -15,16 +16,27 @@ data class Point2D(val x: Double, val y: Double) {
     val theta: Angle
         get() = Angle(atan(y / x))
 
-    operator fun plus(other: Point3D) =
-        Point3D(
+    operator fun plus(other: Point2D) =
+        Point2D(
             other.x + x,
             other.y + y
         )
 
-    operator fun minus(other: Point3D) =
-        Point3D(
+    operator fun minus(other: Point2D) =
+        Point2D(
             other.x - x,
             other.y - y
         )
 
+    operator fun plus(other: Vector2D) =
+        Point2D(
+            other.x + x,
+            other.y + y
+        )
+
+    operator fun minus(other: Vector2D) =
+        Point2D(
+            other.x - x,
+            other.y - y
+        )
 }
