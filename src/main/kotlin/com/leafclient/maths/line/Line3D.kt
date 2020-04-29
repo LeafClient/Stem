@@ -22,5 +22,13 @@ data class Line3D(val start: Point3D, val end: Point3D) {
         )
     )
 
+    fun rotate(pitch: Double, yaw: Double) : Line3D {
+        return Line3D(
+            start,
+            length,
+            direction.rotate(pitch, yaw)
+        )
+    }
+
     //  Todo: Get points; A bit confused on how to do it ngl and its l8. Ill figure it out tmrw
 }
