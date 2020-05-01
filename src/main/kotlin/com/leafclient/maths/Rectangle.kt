@@ -9,14 +9,14 @@ class Rectangle(var width: Double, var height: Double, var center: Point2) {
     val perimeter: Double
         get() = (width*2)+(height*2)
 
-    val squaee: Square?
-        get() = if(isSquare()) {Square(width, center)} else {null}
+    val square: Square?
+        get() = if(isSquare) Square(width, center) else null
 
     fun enclosingOval() : Oval {
         return Oval(width/2, height/2, center)
     }
 
-    fun isSquare() : Boolean {
-        return width == height
-    }
+    val isSquare: Boolean
+        get() = width == height
+
 }

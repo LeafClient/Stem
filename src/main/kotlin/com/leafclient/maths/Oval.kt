@@ -4,6 +4,7 @@ import com.leafclient.maths.point.Point2
 import kotlin.math.sqrt
 
 class Oval(var major: Double, var minor: Double, var center: Point2) {
+
     val area: Double
         get() = kotlin.math.PI*major*minor
 
@@ -11,9 +12,9 @@ class Oval(var major: Double, var minor: Double, var center: Point2) {
         get() = 2*kotlin.math.PI*sqrt((major+minor)/2)
 
     val circle: Circle?
-        get() = if(isCircle()) {Circle(major, center)} else {null}
+        get() = if(isCircle) {Circle(major, center)} else {null}
 
-    fun isCircle() : Boolean {
-        return major == minor
-    }
+    val isCircle: Boolean
+        get() = major == minor
+
 }

@@ -4,13 +4,14 @@ import com.leafclient.maths.point.Point3
 import com.leafclient.maths.vector.Vector3
 import kotlin.math.max
 import kotlin.math.min
+import kotlin.math.sqrt
 
 class Line3(var start: Point3, var end: Point3) {
     val direction : Vector3
         get() = Vector3(end.x-start.x, end.y-start.y, end.z-start.z)
 
     val length : Double
-        get() = Math.sqrt((end.x - start.x)*(end.x - start.x) + (end.y - start.y)*(end.y - start.y) + (end.z - start.z)*(end.z - start.z));
+        get() = sqrt((end.x - start.x)*(end.x - start.x) + (end.y - start.y)*(end.y - start.y) + (end.z - start.z)*(end.z - start.z));
 
     constructor(
         point: Point3, length: Double, direction: Vector3
@@ -23,8 +24,7 @@ class Line3(var start: Point3, var end: Point3) {
     )
 
     fun scale(scale: Double): Vector3 {
-        var scalesquared = scale*scale
-        var multiply = scale/(direction.x+direction.y+direction.z)
+        val multiply = scale/(direction.x+direction.y+direction.z)
         return Vector3(direction.x*multiply, direction.y*multiply, direction.z*multiply)
     }
 
@@ -47,11 +47,12 @@ class Line3(var start: Point3, var end: Point3) {
     }
 
     fun points(precision: Double): HashSet<Point3> {
-        var i = 0;
+        var i = 0
         val scale = scale(precision)
-        var toReturn = HashSet<Point3>()
+        val toReturn = HashSet<Point3>()
         while(xInBounds(start.x+(scale.x*i)) && yInBounds(start.y+(scale.y*i)) && zInBounds(start.z+(scale.z*i))) {
             toReturn.add(Point3(start.x+(scale.x*i), start.y+(scale.y*i), start.z+(scale.z*i)))
+            i++
         }
         return toReturn
     }

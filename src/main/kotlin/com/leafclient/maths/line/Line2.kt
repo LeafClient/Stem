@@ -26,8 +26,7 @@ class Line2(var start: Point2, var end: Point2) {
     )
 
     fun scale(scale: Double): Vector2 {
-        var scalesquared = scale*scale
-        var multiply = scale/(direction.x+direction.y)
+        val multiply = scale/(direction.x+direction.y)
         return Vector2(direction.x*multiply, direction.y*multiply)
     }
 
@@ -55,9 +54,10 @@ class Line2(var start: Point2, var end: Point2) {
     fun points(precision: Double): HashSet<Point2> {
         var i = 0;
         val scale = scale(precision)
-        var toReturn = HashSet<Point2>()
+        val toReturn = HashSet<Point2>()
         while(xInBounds(start.x+(scale.x*i)) && yInBounds(start.y+(scale.y*i))) {
             toReturn.add(Point2(start.x+(scale.x*i), start.y+(scale.y*i)))
+            i++
         }
         return toReturn
     }

@@ -12,7 +12,6 @@ class Square(var sideLength: Double, var center: Point2) {
     val perimeter: Double
         get() = sideLength*4
 
-    fun enclosingCircle() : Circle {
-        return Circle(sideLength/2, center)
-    }
+    val enclosingCircle: Circle
+        get() = Circle(sideLength/2, center)
 }
