@@ -3,6 +3,6 @@
   <strong>A Kotlin math library used by Leaf developers</strong>
 </div>
 
-### A basic math library written in kotlin for use in Leaf
+### About Stem
 
 Still very WIP, most code not implemented/partially implemented (broken)
