@@ -1,6 +1,6 @@
-package com.leafclient.maths
+package com.leafclient.stem
 
-import com.leafclient.maths.point.Point2
+import com.leafclient.stem.point.Point2
 
 class Rectangle(var width: Double, var height: Double, var center: Point2) {
     val area: Double

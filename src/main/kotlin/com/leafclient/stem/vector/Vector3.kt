@@ -1,10 +1,10 @@
-package com.leafclient.maths.vector
+package com.leafclient.stem.vector
 
 import kotlin.math.asin
 import kotlin.math.cos
 import kotlin.math.sin
 
-class Vector3(
+data class Vector3(
     var x: Double, var y: Double, var z: Double
 ) {
 
@@ -42,3 +42,10 @@ class Vector3(
             other.z * z
 
 }
+
+/**
+ * A function used to create vector easily and make the syntax around mathematical functions
+ * look better.
+ */
+fun vec3(x: Double, y: Double, z: Double)
+        = Vector3(x, y, z)

@@ -1,4 +1,4 @@
-package com.leafclient.maths
+package com.leafclient.stem
 
 import kotlin.math.PI
 

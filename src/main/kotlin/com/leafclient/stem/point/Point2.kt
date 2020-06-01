@@ -1,6 +1,6 @@
-package com.leafclient.maths.point
-import com.leafclient.maths.Angle
-import com.leafclient.maths.vector.Vector2
+package com.leafclient.stem.point
+import com.leafclient.stem.Angle
+import com.leafclient.stem.vector.Vector2
 import kotlin.math.atan
 import kotlin.math.cos
 import kotlin.math.sin
