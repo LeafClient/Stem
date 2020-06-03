@@ -40,3 +40,6 @@ class Point2(var x: Double, var y: Double) {
             other.y - y
         )
 }
+
+fun point(x: Double, y: Double)
+        = Point2(x, y)
