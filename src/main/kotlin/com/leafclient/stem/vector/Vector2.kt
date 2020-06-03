@@ -46,5 +46,5 @@ data class Vector2(var x: Double, var y: Double) {
  * A function used to create vector easily and make the syntax around mathematical functions
  * look better.
  */
-fun vec2(x: Double, y: Double)
+fun vec(x: Double, y: Double)
         = Vector2(x, y)
