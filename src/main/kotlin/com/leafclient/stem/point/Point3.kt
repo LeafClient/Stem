@@ -31,5 +31,5 @@ class Point3(var x: Double, var y: Double, var z: Double) {
         )
 }
 
-fun point(x: Double, y: Double, z: Double)
+inline fun point(x: Double, y: Double, z: Double)
         = Point3(x, y, z)

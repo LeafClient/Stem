@@ -7,6 +7,9 @@ import kotlin.math.min
 import kotlin.math.sqrt
 
 class Line3(var start: Point3, var end: Point3) {
+
+    inline fun line(start: Point3, end: Point3) = Line3(start, end)
+
     val direction : Vector3
         get() = Vector3(end.x-start.x, end.y-start.y, end.z-start.z)
 
@@ -70,6 +73,4 @@ class Line3(var start: Point3, var end: Point3) {
             direction.rotate(pitch, yaw)
         )
     }
-
-    //  Todo: Get points; A bit confused on how to do it ngl and its l8. Ill figure it out tmrw
 }

@@ -4,6 +4,8 @@ import kotlin.math.PI
 
 data class Angle(var degrees: Double) {
 
+    inline fun angle(degrees: Double) = Angle(degrees)
+
     val radians: Double
         get() = toRadians(degrees)
 

@@ -47,5 +47,5 @@ data class Vector3(
  * A function used to create vector easily and make the syntax around mathematical functions
  * look better.
  */
-fun vec(x: Double, y: Double, z: Double)
+inline fun vec(x: Double, y: Double, z: Double)
         = Vector3(x, y, z)

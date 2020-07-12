@@ -7,6 +7,8 @@ import kotlin.math.*
 
 class Line2(var start: Point2, var end: Point2) {
 
+    inline fun line(start: Point2, end: Point2) = Line2(start, end)
+
     val direction: Vector2
         get() = Vector2(end.x - start.x, end.y - start.y)
 
