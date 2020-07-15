@@ -6,15 +6,13 @@ import kotlin.math.sqrt
 
 class Oval(var major: Double, var minor: Double, var center: Point2) {
 
-    inline fun oval(major: Double, minor: Double, center: Point2) = Oval(major, minor, center)
-
-    val area: Double
+    inline val area: Double
         get() = PI * major * minor
 
-    val circumference: Double
+    inline val circumference: Double
         get() = 2.0 * PI * sqrt((major + minor) / 2.0)
 
-    val circle: Circle?
+    inline val circle: Circle?
         get() = if(isCircle)
             Circle(major, center)
         else
@@ -24,3 +22,6 @@ class Oval(var major: Double, var minor: Double, var center: Point2) {
         get() = major == minor
 
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun oval(major: Double, minor: Double, center: Point2) = Oval(major, minor, center)

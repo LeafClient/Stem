@@ -6,8 +6,6 @@ import kotlin.math.sin
 
 class Square(var sideLength: Double, var point: Point2) {
 
-    inline fun square(sideLength: Double, point: Point2) = Square(sideLength, point)
-
     val center: Point2
         get() = Point2(point.x+(sideLength/2), point.y+(sideLength/2))
 
@@ -23,3 +21,6 @@ class Square(var sideLength: Double, var point: Point2) {
     val enclosingCircle: Circle
         get() = Circle(sideLength/2, center)
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun square(sideLength: Double, point: Point2) = Square(sideLength, point)

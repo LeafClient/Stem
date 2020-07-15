@@ -31,5 +31,5 @@ class Point3(var x: Double, var y: Double, var z: Double) {
         )
 }
 
-inline fun point(x: Double, y: Double, z: Double)
-        = Point3(x, y, z)
+@Suppress("NOTHING_TO_INLINE")
+inline fun point(x: Double, y: Double, z: Double) = Point3(x, y, z)

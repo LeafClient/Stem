@@ -15,10 +15,10 @@ data class Vector3(
         get() = asin(y/cos(asin(z)))
 
 
-    constructor(pitch: Double, yaw: Double) : this(cos(yaw)*cos(pitch), sin(yaw)*cos(pitch), sin(pitch))
+    constructor(pitch: Double, yaw: Double) : this(cos(yaw) * cos(pitch), sin(yaw) * cos(pitch), sin(pitch))
 
     fun rotate(pitch: Double, yaw: Double): Vector3 {
-        return Vector3(this.pitch+pitch, this.yaw+yaw)
+        return Vector3(this.pitch + pitch, this.yaw + yaw)
     }
 
     operator fun plus(other: Vector3) =
@@ -43,9 +43,5 @@ data class Vector3(
 
 }
 
-/**
- * A function used to create vector easily and make the syntax around mathematical functions
- * look better.
- */
-inline fun vec(x: Double, y: Double, z: Double)
-        = Vector3(x, y, z)
+
+inline fun vec(x: Double, y: Double, z: Double) = Vector3(x, y, z)

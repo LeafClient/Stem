@@ -11,29 +11,24 @@ data class Vector2(var x: Double, var y: Double) {
 
     constructor(slope: Double) : this(1.0, slope)
 
-    fun rotate(angle: Angle)
-            = Vector2(
-        x * cos(angle.degrees) - y * sin(angle.degrees),
-        x * sin(angle.degrees) + y * cos(angle.degrees)
+    fun rotate(angle: Angle) = Vector2(
+        x * cos(angle.length) - y * sin(angle.length),
+        x * sin(angle.length) + y * cos(angle.length)
     )
 
-    fun getX(y: Double)
-            = (y/this.y)*this.x
+    fun getX(y: Double) = (y / this.y) * this.x
 
-    fun getY(x: Double)
-            = (x/this.x)*this.y
+    fun getY(x: Double) = (x / this.x) * this.y
 
-    operator fun plus(other: Vector2) =
-        Vector2(
+    operator fun plus(other: Vector2) = Vector2(
             other.x + x,
             other.y + y
-        )
+    )
 
-    operator fun minus(other: Vector2) =
-        Vector2(
+    operator fun minus(other: Vector2) = Vector2(
             other.x - x,
             other.y - y
-        )
+    )
 
     operator fun times(other: Vector2) =
         // Dot product
@@ -42,9 +37,5 @@ data class Vector2(var x: Double, var y: Double) {
 
 }
 
-/**
- * A function used to create vector easily and make the syntax around mathematical functions
- * look better.
- */
-inline fun vec(x: Double, y: Double)
-        = Vector2(x, y)
+@Suppress("NOTHING_TO_INLINE")
+inline fun vec(x: Double, y: Double) = Vector2(x, y)

@@ -7,16 +7,14 @@ import kotlin.math.*
 
 class Line2(var start: Point2, var end: Point2) {
 
-    inline fun line(start: Point2, end: Point2) = Line2(start, end)
-
-    val direction: Vector2
+    inline val direction: Vector2
         get() = Vector2(end.x - start.x, end.y - start.y)
 
-    val length: Double
-        get() = sqrt((end.x + end.x)*(end.y + end.y))
+    inline val length: Double
+        get() = sqrt((end.x + end.x) * (end.y + end.y))
 
-    val slope: Double
-        get() = (start.y-end.y)/(start.x-end.x)
+    inline val slope: Double
+        get() = (start.y - end.y) / (start.x - end.x)
 
     constructor(
         point: Point2, length: Double, direction: Vector2
@@ -74,11 +72,16 @@ class Line2(var start: Point2, var end: Point2) {
         return true
     }
 
-    fun rotate(angle: Angle)
-            = Line2(
+    /**
+     * TODO: Fix
+     */
+    fun rotate(angle: Angle) = Line2(
         start, length, Vector2(
             direction.x * cos(angle.degrees) - direction.y * sin(angle.degrees),
             direction.x * sin(angle.degrees) + direction.y * cos(angle.degrees)
         )
     )
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun line(start: Point2, end: Point2) = Line2(start, end)

@@ -8,38 +8,37 @@ import kotlin.math.sqrt
 
 class Point2(var x: Double, var y: Double) {
 
-    constructor(r: Double, theta: Angle): this(r * sin(theta.degrees), r * cos(theta.degrees))
+    constructor(r: Double, theta: Angle): this(r * sin(theta.length), r * cos(theta.length))
 
-    val r: Double
+    inline val r: Double
         get() = sqrt(x * x + y * y)
 
-    val theta: Angle
+    /**
+     * TODO: Fix
+     */
+    inline val theta: Angle
         get() = Angle(atan(y / x))
 
-    operator fun plus(other: Point2) =
-        Point2(
+    operator fun plus(other: Point2) = Point2(
             other.x + x,
             other.y + y
-        )
+    )
 
-    operator fun minus(other: Point2) =
-        Point2(
+    operator fun minus(other: Point2) = Point2(
             other.x - x,
             other.y - y
-        )
+    )
 
-    operator fun plus(other: Vector2) =
-        Point2(
+    operator fun plus(other: Vector2) = Point2(
             other.x + x,
             other.y + y
-        )
+    )
 
-    operator fun minus(other: Vector2) =
-        Point2(
+    operator fun minus(other: Vector2) = Point2(
             other.x - x,
             other.y - y
-        )
+    )
 }
 
-inline fun point(x: Double, y: Double)
-        = Point2(x, y)
+@Suppress("NOTHING_TO_INLINE")
+inline fun point(x: Double, y: Double) = Point2(x, y)

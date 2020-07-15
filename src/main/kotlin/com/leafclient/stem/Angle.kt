@@ -1,20 +1,22 @@
 package com.leafclient.stem
 
 import kotlin.math.PI
+import kotlin.math.sqrt
 
-data class Angle(var degrees: Double) {
+data class Angle(var yaw: Double, var pitch: Double) {
 
-    inline fun angle(degrees: Double) = Angle(degrees)
-
-    val radians: Double
-        get() = toRadians(degrees)
+    inline val length: Double
+        get() = sqrt(yaw * yaw + pitch * pitch)
 
     companion object {
-        fun toRadians(degrees: Double)
+        fun toRadian(degrees: Double)
                 = PI * (degrees / 180.0)
 
-        fun toDegrees(radians: Double)
+        fun toDegree(radians: Double)
                 = 180.0 * (radians/ PI)
     }
 
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun angle(yaw: Double, pitch: Double) = Angle(yaw, pitch)

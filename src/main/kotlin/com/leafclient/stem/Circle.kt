@@ -5,8 +5,6 @@ import kotlin.math.PI
 
 class Circle(var radius: Double, var center: Point2) {
 
-    inline fun circle(radius: Double, center: Point2) = Circle(radius, center)
-
     val circumference: Double
         get() = 2.0 * PI * radius
 
@@ -15,5 +13,8 @@ class Circle(var radius: Double, var center: Point2) {
 
     val oval: Oval
         get() = Oval(radius, radius, center)
+
 }
 
+@Suppress("NOTHING_TO_INLINE")
+inline fun circle(radius: Double, center: Point2) = Circle(radius, center)

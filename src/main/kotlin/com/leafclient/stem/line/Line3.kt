@@ -8,8 +8,6 @@ import kotlin.math.sqrt
 
 class Line3(var start: Point3, var end: Point3) {
 
-    inline fun line(start: Point3, end: Point3) = Line3(start, end)
-
     val direction : Vector3
         get() = Vector3(end.x-start.x, end.y-start.y, end.z-start.z)
 
@@ -66,6 +64,9 @@ class Line3(var start: Point3, var end: Point3) {
         return true
     }
 
+    /**
+     * TODO: Fix
+     */
     fun rotate(pitch: Double, yaw: Double) : Line3 {
         return Line3(
             start,
@@ -74,3 +75,6 @@ class Line3(var start: Point3, var end: Point3) {
         )
     }
 }
+
+@Suppress("NOTHING_TO_INLINE")
+inline fun line(start: Point3, end: Point3) = Line3(start, end)
